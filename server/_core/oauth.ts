@@ -1,0 +1,8 @@
+import { COOKIE_NAME, ONE_YEAR_MS, OAUTH_STATE_COOKIE, decodeOAuthState } from "@shared/const";
+import { parse as parseCookieHeader } from "cookie";
+import type { Express, Request, Response } from "express";
+import * as db from "../db";
+import { getSessionCookieOptions } from "./cookies";
+import { sdk } from "./sdk";
+
+export function registerOAuthRoutes(app: Express) { app.get("/api/oauth/callback", async (req: Request, res: Response) => { const code = typeof req.query.code === "string" ? req.query.code : undefined; const state = typeof req.query.state === "string" ? req.query.state : undefined; if (!code || !state) return res.status(400).json({ error: "code and state are required" }); const { nonce } = decodeOAuthState(state); if (!nonce || nonce !== parseCookieHeader(req.headers.cookie ?? "")[OAUTH_STATE_COOKIE]) return res.status(403).json({ error: "invalid oauth state" }); try { const token = await sdk.exchangeCodeForToken(code, state); const info = await sdk.getUserInfo(token.accessToken); if (!info.openId) return res.status(400).json({ error: "openId missing" }); await db.upsertUser({ openId: info.openId, name: info.name || null, email: info.email ?? null, loginMethod: info.loginMethod ?? info.platform ?? null, lastSignedIn: new Date() }); const session = await sdk.createSessionToken(info.openId, { name: info.name || "", expiresInMs: ONE_YEAR_MS }); res.cookie(COOKIE_NAME, session, { ...getSessionCookieOptions(req), maxAge: ONE_YEAR_MS }); return res.redirect(302, "/"); } catch (error) { console.error("[OAuth] Callback failed", error); return res.status(500).json({ error: "OAuth callback failed" }); } }); }

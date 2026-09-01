@@ -1,0 +1,1 @@
+ALTER TABLE `comment_automations` ADD `publicReplyMessage` text;

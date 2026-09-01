@@ -1,0 +1,4 @@
+import { startLogin } from "@/const";
+import { Button } from "@/components/ui/button";
+import { LockKeyhole } from "lucide-react";
+export default function Login() { return <main className="grid min-h-screen place-items-center bg-white p-5"><section className="rule-card w-full max-w-lg p-8 sm:p-12"><div className="mb-20 flex items-center gap-3"><span className="red-square" /><span className="text-sm font-bold tracking-tight">COMMENTLOOM</span></div><p className="page-kicker mb-3">Acesso restrito</p><h1 className="max-w-sm text-4xl font-bold leading-[.95] tracking-[-.055em] sm:text-5xl">Entre no painel operacional.</h1><p className="mt-7 max-w-md text-sm leading-6 text-muted-foreground">Continue com o acesso gerenciado da sua organização.</p><Button onClick={startLogin} className="mt-10 h-12 rounded-none bg-black px-6 text-xs font-bold uppercase tracking-[.12em] hover:bg-[#e62222]"><LockKeyhole className="mr-2 h-4 w-4" />Continuar</Button></section></main>; }

@@ -1,0 +1,4 @@
+# Substitua pelo domínio HTTPS desta instalação antes de aplicar.
+app.seu-dominio.example {
+  reverse_proxy commentloom-app:3000
+}

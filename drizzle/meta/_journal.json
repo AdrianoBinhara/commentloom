@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1787840546371,
+      "tag": "0000_lucky_swarm",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1787841062543,
+      "tag": "0001_nosy_cable",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1787860953443,
+      "tag": "0002_confused_master_mold",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1787940578605,
+      "tag": "0003_same_queen_noir",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1787942257736,
+      "tag": "0004_vengeful_franklin_richards",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1787943079053,
+      "tag": "0005_kind_marvex",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1788185736657,
+      "tag": "0006_charming_nicolaos",
+      "breakpoints": true
+    }
+  ]
+}

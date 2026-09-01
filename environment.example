@@ -1,0 +1,11 @@
+# Modelo de configuração local. Copie para .env e substitua todos os exemplos.
+# Nunca publique o arquivo .env preenchido.
+NODE_ENV=development
+PORT=3000
+PUBLIC_BASE_URL=https://app.seu-dominio.example
+DATABASE_URL=mysql://usuario:senha@localhost:3306/commentloom
+JWT_SECRET=troque-por-um-segredo-longo-e-aleatorio
+META_INSTAGRAM_APP_ID=seu-instagram-app-id
+META_INSTAGRAM_APP_SECRET=seu-instagram-app-secret
+META_WEBHOOK_VERIFY_TOKEN=token-de-verificacao-longo-e-aleatorio
+META_GRAPH_API_VERSION=v25.0
