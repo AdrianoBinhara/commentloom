@@ -21,6 +21,10 @@ Para validar o projeto, execute `pnpm test` e `pnpm check`. Para alterações no
 
 Consulte [SECURITY.md](SECURITY.md) antes de publicar forks ou abrir issues. A configuração de produção deve usar um gerenciador de segredos e uma URL pública própria definida em `PUBLIC_BASE_URL`.
 
+## Configuração e contribuições
+
+Use o [guia completo de configuração Meta](docs/CONFIGURAR_META.md) para instalar o projeto com seu próprio domínio e aplicativo Meta. Caso prefira ajuda assistida, copie o [roteiro para IA](docs/PROMPT_PARA_IA.md). Para enviar melhorias, siga [CONTRIBUTING.md](CONTRIBUTING.md) e abra um pull request.
+
 ## Licença
 
 Este repositório está configurado como MIT no pacote. Adicione um arquivo `LICENSE` com o texto da licença escolhida antes de tornar o repositório público.
