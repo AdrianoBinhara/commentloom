@@ -5,7 +5,19 @@ updates:
     schedule:
       interval: monthly
     open-pull-requests-limit: 2
+    groups:
+      routine-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: monthly
+    open-pull-requests-limit: 1
+    groups:
+      routine-actions:
+        patterns:
+          - "*"
