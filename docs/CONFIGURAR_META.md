@@ -8,11 +8,11 @@ Este guia é para quem fez um fork e quer operar a **própria instalação** do 
 
 | Item | O que fazer |
 |---|---|
-| Código | Faça fork, clone o repositório e execute `pnpm install`. |
-| Ambiente | Copie `environment.example` para `.env` e substitua todos os valores de exemplo. |
+| Código | Faça fork, clone o repositório, entre em `app/` e execute `pnpm install`. |
+| Ambiente | Dentro de `app/`, copie `environment.example` para `.env` e substitua todos os valores de exemplo. |
 | Banco | Crie um banco MySQL exclusivo e defina `DATABASE_URL`. |
 | Domínio | Configure um domínio público com HTTPS. Use essa origem, sem barra final, em `PUBLIC_BASE_URL`. |
-| Validação | Execute `pnpm test` e `pnpm check`; aplique as migrações no banco desta instalação. |
+| Validação | Dentro de `app/`, execute `pnpm test` e `pnpm check`; aplique as migrações no banco desta instalação. |
 
 Por exemplo, para uma instalação em `https://app.exemplo.com`, use `PUBLIC_BASE_URL=https://app.exemplo.com`. Nunca use endereço local, URL de preview ou domínio de outra pessoa para o fluxo real.
 
