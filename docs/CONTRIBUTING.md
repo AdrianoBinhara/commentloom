@@ -5,7 +5,7 @@ Contribuições são bem-vindas por meio de **forks e pull requests**. Para mant
 ## Fluxo de contribuição
 
 1. Faça um fork do repositório e crie uma branch descritiva, como `fix/reel-selector-overflow`.
-2. Instale as dependências com `pnpm install` e confirme que `pnpm test` e `pnpm check` passam antes de começar.
+2. Entre em `app/`, instale as dependências com `pnpm install` e confirme que `pnpm test` e `pnpm check` passam antes de começar.
 3. Mantenha a alteração pequena e focada. Inclua testes quando modificar regras de processamento, integração ou validação.
 4. Atualize a documentação quando a alteração afetar instalação, segurança ou o comportamento de uma automação.
 5. Abra um pull request usando o modelo do repositório. Explique o problema, a solução e como ela foi testada.
