@@ -2,6 +2,14 @@
 
 **Automação open source para comentários em Reels do Instagram.** O CommentLoom responde a comentários elegíveis, envia um convite privado **sem link** e só entrega o destino após a confirmação explícita da pessoa.
 
+## Quer configurar usando IA?
+
+**Comece por aqui:** abra o arquivo abaixo, copie todo o texto e cole na IA de sua preferência. Ele conduz a configuração passo a passo e impede o envio de segredos no chat, no código ou no Git.
+
+### [COPIAR ROTEIRO PARA CONFIGURAR COM IA →](docs/PROMPT_PARA_IA.md)
+
+Não precisa entender a árvore de arquivos para começar. A IA vai usar o roteiro e este repositório como referência.
+
 > Use apenas contas profissionais do Instagram e as APIs oficiais da Meta. Cada instalação é independente: você usa o seu domínio, o seu aplicativo Meta, o seu banco e as suas credenciais.
 
 ## O que o fluxo faz
