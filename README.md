@@ -1,30 +1,68 @@
 # CommentLoom
 
-CommentLoom é uma automação para contas profissionais do Instagram. Ele pode responder a comentários elegíveis em Reels, enviar um convite privado sem link e entregar o link somente após uma confirmação explícita.
+**Automação open source para comentários em Reels do Instagram.** O CommentLoom responde a comentários elegíveis, envia um convite privado **sem link** e só entrega o destino após a confirmação explícita da pessoa.
 
-## Antes de começar
+> Use apenas contas profissionais do Instagram e as APIs oficiais da Meta. Cada instalação é independente: você usa o seu domínio, o seu aplicativo Meta, o seu banco e as suas credenciais.
 
-Você precisa de uma conta profissional do Instagram, um aplicativo próprio na Meta configurado para **Instagram API with Instagram Login**, um domínio HTTPS público e um banco MySQL. Cada instalação deve usar as próprias credenciais; **nunca** publique valores de `.env`, tokens de acesso, backups ou dados reais de clientes.
+## O que o fluxo faz
 
-Copie `environment.example` para `.env`, preencha apenas os valores da sua instalação e siga o guia em [SETUP.md](SETUP.md). O arquivo `.env` e os dados de execução são ignorados pelo Git.
+1. Uma pessoa comenta no Reel selecionado.
+2. O CommentLoom verifica a automação, a palavra-chave opcional e as palavras proibidas.
+3. Ele publica uma resposta opcional no comentário e envia um convite privado sem link.
+4. A pessoa confirma que quer receber o material.
+5. O link é enviado uma única vez, respeitando as regras e janelas aplicáveis da Meta.
 
-## Desenvolvimento
+## Início rápido
+
+| Etapa | O que você precisa fazer |
+|---|---|
+| 1. Criar sua cópia | Faça um fork deste repositório e clone-o para sua máquina ou servidor. |
+| 2. Instalar | Execute `pnpm install`. |
+| 3. Configurar ambiente | Copie `environment.example` para `.env` e preencha apenas os valores da **sua** instalação. |
+| 4. Preparar infraestrutura | Disponibilize um domínio HTTPS público e um banco MySQL próprios. |
+| 5. Configurar Instagram | Crie seu aplicativo no painel Meta e cadastre as URLs de retorno e webhook do seu domínio. |
+| 6. Executar | Rode `pnpm dev` no desenvolvimento ou faça o deploy no seu provedor. |
+| 7. Conectar e testar | Entre no painel, conecte uma conta Business ou Creator, crie uma automação, aprove-a e faça um teste controlado. |
 
 ```bash
+git clone https://github.com/SEU-USUARIO/commentloom.git
+cd commentloom
 pnpm install
+cp environment.example .env
 pnpm dev
 ```
 
-Para validar o projeto, execute `pnpm test` e `pnpm check`. Para alterações no banco, gere a migração com Drizzle e aplique-a apenas no banco da sua instalação.
+## Configure o Instagram passo a passo
 
-## Segurança
+O guia completo explica, em linguagem direta, como configurar o domínio HTTPS, banco, aplicativo Meta, retorno de login, webhook, eventos e teste do fluxo:
 
-Consulte [SECURITY.md](SECURITY.md) antes de publicar forks ou abrir issues. A configuração de produção deve usar um gerenciador de segredos e uma URL pública própria definida em `PUBLIC_BASE_URL`.
+**[Abrir o guia completo de configuração](docs/CONFIGURAR_META.md)**
 
-## Configuração e contribuições
+Se preferir configurar com auxílio de uma IA, copie o texto abaixo para a ferramenta de sua escolha. Ele foi feito para pedir confirmação em cada etapa e para não colocar nenhuma credencial em código, Git ou conversa:
 
-Use o [guia completo de configuração Meta](docs/CONFIGURAR_META.md) para instalar o projeto com seu próprio domínio e aplicativo Meta. Caso prefira ajuda assistida, copie o [roteiro para IA](docs/PROMPT_PARA_IA.md). Para enviar melhorias, siga [CONTRIBUTING.md](CONTRIBUTING.md) e abra um pull request.
+**[Abrir o roteiro seguro para IA](docs/PROMPT_PARA_IA.md)**
+
+## Variáveis e segurança
+
+O arquivo [`environment.example`](environment.example) lista as variáveis necessárias sem qualquer valor real. Guarde segredos apenas no `.env` local ou no gerenciador de segredos da sua hospedagem.
+
+**Nunca** envie ao Git, a uma issue, a uma pull request ou a um chat público: Instagram App Secret, tokens de acesso, `JWT_SECRET`, senha de banco, `DATABASE_URL` completa, token de verificação de webhook, arquivos `.env`, `deploy/runtime`, backups ou dados reais de pessoas.
+
+Leia [SECURITY.md](SECURITY.md) se encontrar uma exposição de segurança.
+
+## Desenvolvimento e validação
+
+```bash
+pnpm test
+pnpm check
+```
+
+Antes de aplicar qualquer alteração no banco, gere a migração com Drizzle e aplique-a somente no banco da sua própria instalação.
+
+## Contribuições
+
+Você pode fazer fork, criar uma branch e abrir uma pull request. As contribuições passam pela validação automática de testes e tipos. Leia **[CONTRIBUTING.md](CONTRIBUTING.md)** para o fluxo de contribuição e a lista de cuidados de segurança.
 
 ## Licença
 
-Este repositório está configurado como MIT no pacote. Adicione um arquivo `LICENSE` com o texto da licença escolhida antes de tornar o repositório público.
+Distribuído sob a licença [MIT](LICENSE).
